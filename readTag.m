@@ -9,13 +9,13 @@ function [d1image] = readTag(fName,input_size)
     fclose(file_handle); % close the file
     
     whos A
-    % Now we have a file, however, we want it in size 262144x1 but there is
+    % Now we have a file, however, we want it in size 262144x1 (which is 512x512) but there is
     % a header.
     
     arr_size = size(A);
-    arr_size = arr_size(1);
+    arr_size = arr_size(1); %get len of the arr
     
-    %del header
+    %del the header by cutting out until we reach the input_size in 1d
     to_trim = arr_size - prod(input_size);
     A(1:to_trim) = [];
     
