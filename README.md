@@ -15,7 +15,8 @@ Simply resize this array into the shape you need, e.g. 512x512.
 Voila! It's as simple as that.
 
 I used this for a segmentation problem, so I read my DICOMs:
-```imds = imageDatastore('my dir would be right here', ...
+```
+imds = imageDatastore('my dir would be right here', ...
     'FileExtensions', '.dcm', 'ReadFcn',@(x) dicomread(x));
 ```
     
